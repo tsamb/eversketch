@@ -37,7 +37,20 @@ describe User do
     expect(user).to_not be_valid
   end
 
-  it "is invalid with a duplicate email address"
+  it "is invalid with a duplicate email address" do
+    user = User.create(username: "tsamb",
+      password: "password",
+      first_name: "Sam",
+      last_name: "Blackman",
+      email: "sam@example.com")
+    dup_user = User.new(username: "sammy",
+      password: "password",
+      first_name: "Sammy",
+      last_name: "Sosa",
+      email: "sam@example.com")
+    expect(dup_user).to_not be_valid
+  end
+
   it "is invalid with a duplicate username"
   it "returns a contact's full name as a string"
 end
