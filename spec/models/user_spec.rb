@@ -65,5 +65,12 @@ describe User do
     expect(dup_user).to_not be_valid
   end
 
-  it "returns a contact's full name as a string"
+  it "returns a contact's full name as a string" do
+    user = User.new(username: "tsamb",
+      password: "password",
+      first_name: "Sam",
+      last_name: "Blackman",
+      email: "sam@example.com")
+    expect(user.name).to eq("Sam Blackman")
+  end
 end
