@@ -19,7 +19,15 @@ describe User do
     expect(user).to_not be_valid
   end
 
-  it "is invalid without a password"
+  it "is invalid without a password" do
+    user = User.new(username: "tsamb",
+      password: nil,
+      first_name: "Sam",
+      last_name: "Blackman",
+      email: "sam@example.com")
+    expect(user).to_not be_valid
+  end
+
   it "is invalid without an email address"
   it "is invalid with a duplicate email address"
   it "is invalid with a duplicate username"
