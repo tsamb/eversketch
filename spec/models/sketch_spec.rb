@@ -10,4 +10,9 @@ describe Sketch do
     sketch = Sketch.new(tree_id: nil, user_id: 1, parent_id: 1, json_data: "{\"random\":\"json data\"}")
     expect(sketch).to_not be_valid
   end
+
+  it "is invalid without a user_id" do
+    sketch = Sketch.new(tree_id: 1, user_id: nil, parent_id: 1, json_data: "{\"random\":\"json data\"}")
+    expect(sketch).to_not be_valid
+  end
 end
