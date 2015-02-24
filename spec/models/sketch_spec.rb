@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 describe Sketch do
-
+  it "is valid with a tree_id, user_id, parent_id and json_data " do
+    sketch = Sketch.new(tree_id: 1, user_id: 1, user_id: 1, json_data: "{\"random\":\"json data\"}")
+    expect(sketch).to be_valid
+  end
 end
